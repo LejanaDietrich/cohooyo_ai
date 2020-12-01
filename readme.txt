@@ -32,14 +32,16 @@ https://amitness.com/toolbox/
 
 
 TODO:
-Alessandros Cold Recommender System Beispiel + Visulaisierung zum Laufen bringen
-    + damit experimentieren
+Experimentieren mit dem leastEffort Modell basierend auf Alessandros Unterlagen
+    verschiedene sklearn-Algorithmen ausprobieren
 Tensorflow-Einarbeitung
-word2vec
+word2vec - 
+    preparations\NLP\internal\readme.txt
 Beispiel durcharbeiten, z.B.
     https://www.analyticsvidhya.com/blog/2020/08/recommendation-system-k-nearest-neighbors/
+Integration mit Server
 
 Vollstaendig abgearbeite Schritte:
  - 
 
- !Installationen und Erklaerungen finden sich in den jeweiligen Ordnern in preparations
+!Installationen und Erklaerungen finden sich in den jeweiligen Ordnern in preparations

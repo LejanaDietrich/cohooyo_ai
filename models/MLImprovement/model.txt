@@ -1,0 +1,7 @@
+NLP:
+standard spacy model
+ML:
+Ein ideales Mapping wird gesucht.
+Ein Clustering-Algorithmus wird selbst geschrieben oder ein KMeans abgeaendert.
+Evaluation:
+TODO

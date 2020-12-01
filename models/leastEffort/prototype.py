@@ -1,9 +1,11 @@
 #as specified by Alessandro
 #https://cohooyo-angular.s3.amazonaws.com/NLP+Cold+Recommender+System.html
 
-#parameters
+#parameters - name of graphs being created change with these too
+# "de_core_news_", "sm", 4 in example from cohooyo/Alessandro
 modelLang = "de_core_news_"
-modelSize = "lg"
+modelSize = "sm"
+clusterSize = 4
 
 #see mapped_jobs for changing the mapping parameters
 
@@ -17,7 +19,8 @@ from sklearn.feature_extraction import text as text_feature_extraction
 from sklearn.feature_extraction import stop_words
 import spacy
 #change to compare 
-nlp = spacy.load("de_core_news_lg")
+modelString = modelLang + modelSize
+nlp = spacy.load(modelString)
 
 #imports for ml algorithm
 from sklearn.cluster import KMeans #current
@@ -156,7 +159,7 @@ for index,xy in enumerate(zip(data[:,0], data[:,1])):
 
 # Clustering
 
-kmeans = KMeans(n_clusters=7)
+kmeans = KMeans(n_clusters=clusterSize)
 # fit kmeans object to data
 kmeans.fit(mapped_jobs)
 mapped_clusters = kmeans.fit_predict(mapped_jobs)
@@ -164,7 +167,8 @@ mapped_clusters = kmeans.fit_predict(mapped_jobs)
 plt.scatter(data[:,0],data[:,1], c=mapped_clusters)
 
 #in AI root directory, shows clustered data
-plt.savefig("models\leastEffort\\visualization\clusteringLg7.png")
+saveString = 'models\leastEffort\\visualization\clustering' + modelSize + str(clusterSize) + '.png'
+plt.savefig(saveString)
 
 
 
@@ -182,7 +186,6 @@ def closest_cluster(jobid):
 def get_jobs_by_cluster(clusterid):
     jobs_indices = np.where(mapped_clusters==clusterid)[0]
    
-    
     return_jobs = []
     for index, job in enumerate(jobs):
         if index in jobs_indices:
@@ -224,4 +227,6 @@ from sklearn.metrics import confusion_matrix
 _=confusion_matrix(y_true, y_pred)
 import seaborn as sns
 sns.heatmap(_/np.sum(_), annot=True, fmt='.2%', cmap='Blues')
-plt.savefig('models\leastEffort\\visualization\confusionMatrixLg7.png')
+
+saveString = 'models\leastEffort\\visualization\confusionMatrix' + modelSize + str(clusterSize) + '.png'
+plt.savefig(saveString)

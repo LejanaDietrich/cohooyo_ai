@@ -13,4 +13,6 @@ TensorFlow soll zunaechst mit einem generischen Recommender Algorithmus erlernt 
              but you'll have absl-py 0.11.0 which is incompatible.)
                 => TODO: Loesung finden
 
-
+Im Projektverlauf mehrere Tools zu verwenden bringt vermutlich Vorteile
+Sklearn vs Tensorflow:
+    https://sebastianraschka.com/faq/docs/tensorflow-vs-scikitlearn.html

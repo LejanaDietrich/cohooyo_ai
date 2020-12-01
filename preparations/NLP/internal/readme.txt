@@ -12,6 +12,10 @@ https://amitness.com/toolbox/
 Keyword extraction Beispiel (andere Python library):
 https://www.kdnuggets.com/2019/11/content-based-recommender-using-natural-language-processing-nlp.html
 
+Spacy-Training
+https://spacy.io/usage/training
+https://spacy.io/usage/vectors-similarity
+
 Beim Updaten von existierenden Modellen koennen Kategorien wir "PPERSON" fuer das
 Einsatzgebiet verbessert werden.
 Um neue Kategorien zu erstellen muss laenger mit mehr Daten trainiert werden, sowie
