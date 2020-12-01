@@ -11,8 +11,15 @@ Es wird der bereits trainierte Algorithmus KMeans von sklearn übernommen, um ei
 Clustering der Profile(der Bewerber und Stellenangebote) vorzunehmen.
 
 Evaluation dieses Modells:
-siehe confusionMatrix.png
-truePositives + trueNegatives = 63.75%
-Das ist eine Verbesserung um ~6% gegenüber 57.6
+siehe confusionMatrix
+
+unter Untersuchtem ideales Ergebnis bei lg oder md Modell und 7 Clustern
+kein Unterscheid md lg bei gegebenen Daten und Mapping, sm funktioniert schlechter
+kein Unterschied 4 oder 5 Cluster, 7 besser
+
+Clusteranzahl muss wenn mehr Daten vorhanden neu untersucht werden.
+
+truePositives + trueNegatives bis zu = 63.75% 
+Das ist eine Verbesserung um ~6% gegenüber 57.6% (cohooyo Beispiel)
 
 TODO: mittelgroßes spacy-Modell, sowie verschiedene Clustergroeßen ausprobieren
