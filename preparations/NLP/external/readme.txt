@@ -2,8 +2,6 @@ NLP Model: External
 Untersuchung diverser externer NLP-Methoden und vortrainierter Modelle
 mit Hile von Spacy
 
-TODO: Vergleichen des deutschen _sm _md und _lg Modells
-
 (Moegliches Problem: Keine sentiment analysis in Spacy
 PyNLP als Moeglichkeit, ungewoehnlichere Algorithmen zu nutzen, nur wenn noetig)
 
@@ -22,6 +20,11 @@ Install/Update Spacy:
         medium:
             python -m spacy download en_core_web_md
 
+Zur Visualisierung wird die Python Bibliothek matplotlibrary genutzt:
+python -m pip install -U matplotlib
+Sowie die darauf basierende Bib seaborn:
+pip install seaborn
+
 Im course Unterordner finden sich der Link zu einem empfehlenswerten spacy-Tutorial,
     sowie Files mit bearbeiteten Uebungen, die zur Referenz dienen koennen
 
@@ -36,4 +39,5 @@ Die Vektoren haben idR 300 Dimensionen
 
 Werden Matcher genutzt, sollen bei langen Datensätzen PhraseMatcher genutzt werden => Effizienz
 
-
+TODO: Vergleichen des deutschen _sm _md und _lg Modells
+        clusteringTest (von Kunde gestellt) zum Laufen bringen

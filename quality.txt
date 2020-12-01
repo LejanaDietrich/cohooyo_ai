@@ -1,0 +1,14 @@
+which metrics:
+https://www.sciencedirect.com/science/article/abs/pii/S0020025516310052
+accuracy, coverage, serependity (unplanned fortunate discoveries)
+how:
+https://www.quora.com/How-can-I-measure-the-accuracy-of-a-recommender-system
+detailed paper:
+https://link.springer.com/article/10.1007/s13042-017-0762-9
+
+
+Ziel: hoehere Erfolgsrate, als die praesentierte, unoptimierte ki von Cohooyo 
+    auf den selben Daten (57.6% auf aktuellen Daten)
+    + keine nach festen Kriterien (Entfernung) ausgeschlossenen Matches anzeigen
+Die Daten, mit denen getestet werden kann, sind Eingeschraenkt und subjektiv. 
+Daher ist Aussagekraeftigkeit fuer den tatsaechlichen Einsatz nicht garantierbar.

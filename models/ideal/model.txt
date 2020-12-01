@@ -1,0 +1,11 @@
+NLP:
+"de_core_news_lg" wird deutlich verbessert (genaue %-Zahl: tbd;), indem mit
+word2vec Algorithmen generierte relevante Vektoren hinzugefuegt/verbessert,
+irrelevante (z.B. fuer Apfel) aber entfernt werden ("pruning")
+
+ML:
+Es wird ein multipler k-means clustering ensemble algorithm mit Hilfe von 
+Tensorflow und ggf. Keras implementiert.
+
+Evaluierung dieses Models:
+TODO

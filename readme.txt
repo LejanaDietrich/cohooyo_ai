@@ -22,6 +22,8 @@ Technologien und Frameworks:
     Daten:
         sklearn
     Visualisierung:
+        matplotlip (Python Bibliothek)
+        seaborn (basiert auf matplotlib)
     Validierung/Evaluation:
     (Vergleich:)
 
@@ -39,3 +41,5 @@ Beispiel durcharbeiten, z.B.
 
 Vollstaendig abgearbeite Schritte:
  - 
+
+ !Installationen und Erklaerungen finden sich in den jeweiligen Ordnern in preparations

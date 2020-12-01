@@ -1,0 +1,13 @@
+Eigenes verbessertes NLP, aber es wird der selbe bestehende ML ALgorithmus verwendet,
+wie im leastEffort-Modell
+
+NLP:
+"de_core_news_lg" wird deutlich verbessert (genaue %-Zahl: tbd;), indem mit
+word2vec Algorithmen generierte relevante Vektoren hinzugefuegt/verbessert,
+irrelevante (z.B. fuer Apfel) aber entfernt werden ("pruning")
+
+ML:
+Es wird der bereits trainierte Algorithmus KMeans von sklearn übernommen, um ein
+Clustering der Profile(der Bewerber und Stellenangebote) vorzunehmen.
+
+Evaluation dieses Modells:

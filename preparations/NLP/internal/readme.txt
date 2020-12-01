@@ -35,3 +35,5 @@ Recherchieren, ob die deutschen Modelle fuer unser Feld ausreichend viele Vektor
     haben, mit denen ein ML-Algorithmus, der sich auf numbers verlaesst arbeiten kann
 Wenn nicht, muss ein word2vec gefunden werden, der dies noch macht
     => Wahrscheinlich, nach Alessandro so vorgesehen
+Recherchieren, wie Vord2Vec eingesetzt werden kann, um schon existierendes
+spacy-Modell zu modifizieren
