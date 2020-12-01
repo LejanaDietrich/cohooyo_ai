@@ -1,0 +1,93 @@
+How do I map? - Modelle vergleichen
+
+hilfreich (am besten in gegebener Reihenfolge):
+Kategorien:
+    https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/
+spezifische Algorithmen:
+    https://www.dataquest.io/blog/top-10-machine-learning-algorithms-for-beginners/
+Orientierungsdiagramm:
+    https://scikit-learn.org/stable/_static/ml_map.png
+Tools:
+    https://amitness.com/toolbox/
+Recommender-Beispiele:
+    https://cohooyo-angular.s3.amazonaws.com/NLP+Cold+Recommender+System.html
+    https://www.analyticsvidhya.com/blog/2020/08/recommendation-system-k-nearest-neighbors/
+Machine Lraning mit Python + scikit-learn:
+https://www.dataquest.io/blog/sci-kit-learn-tutorial/
+
+Weka kann ggf. beim Vergleich helfen, Hadoop und Mahout ggf. spaeter
+
+Recommender-Systems muessen Regression oder Klassifikation loesen - Wir welches davon?
+    Moeglicherweise beides moeglich, je nach Algorithmus
+
+Für das Projekt Cohooyo sinnvoll:
+    Uebergreifend: neurales netz mit einem oder wenigen Hidden layer
+        vermutlich stochastischer Algorithmus (Gegensatz z.B. Rule-Based)
+    Clustering  
+        KMeans, bei wenig Daten Minibatch KMeans - kann bei sehr vielen Daten verlangsamen
+        Gaussian Mixture Model algorithm
+        BIRCH - hier muss aber vorher alles in Nummern gewandelt werden
+        Affinity Propagation -  Clusteranzahl muss hier nicht selbst angegeben werden!
+        vllt Spectral Clustering
+        vllt auch Expected Maximisation
+        am besten Centroid-based
+    (Pattern Recognition - kein ML Modell?)
+    Regression
+        siehe naechste Liste...
+
+Besser recherchieren:
+    Association Rule Algorithms 
+        - z.B. um Produkte aufgrund von frueherem Einkauf zu empfehlen
+    Collaborative Filtering, am besten multui-criteria CF
+    Bayesian Networks (als Einflussdiagramme veranschaulich) - aber eher weniger
+    Ensemble Algorithms - Predictions mehrerer schwacher Modelle werden
+        kombiniert, z.B. als weighted average
+        Bagging, Boosting and Stacking Varianten existieren (Bagging vielvesrsprechend)
+    Logistic Regression: Nur values 0,1 -> Als Teil von Ensamble Algorithmus?
+    SGD Regressor
+    Lassoo
+    Ridge Regression (Regressionsalgoithmus, der sich bewusst simpel haelt)
+    lineares SVC
+    k-Nearest Neighbor -> Recommender, Vllt nur supervised / schwer zu trainieren
+    Principal Component Analysis (PCA) - leichte Visualisierung
+    
+
+Eher nicht:
+    Predi sinncollcted Ratings
+    Perceptron und anderes Deep Learning
+    Lineare Regression
+    Apriori Algorithm - rule induction, eher pures data mining, aber nicht sicher schlecht
+    Genetic algorithms - veraltet
+    Least-Angle Regression
+    Decision Trees (z.B. CART)
+    Density-Based Clutering - Outliers werden ignoriert
+    Distribution-based clustering - muss zu gut vorstrukturiert sein, Fokuspunkte haben
+
+
+Optimierungsmoeglichkeiten:
+    Batch Gradient Descent
+    Stochastic Gradient Descent
+    Mini-batch Gradient Descent
+
+Training: Aufgrund Zeit vermutlich unsupervised learning, wenn moeglich semi-supervised
+    (Von Alessandro vorgestelltes Modell supervised?)
+    TODO: Anpassen obiger Einschaetzungen aufgrund trainingsaufwand
+    Supervised:
+        Decision Tree, KNN, Regression, Logistiv Regression
+    Unsupervised:
+        K-Means Clustering, meiste Clusterings, A-priori
+    Reinforced: (=! Semi-supervised, eher nichts fuer uns)
+    Semi-Supervised:
+        text document classifier
+
+Was wird verglichen:
+Noch zu entscheiden, nur Content Based, Collaborative based oder Hybrid
+(https://www.analyticsvidhya.com/blog/2020/08/recommendation-system-k-nearest-neighbors/)
+
+
+Vorlaufige Schlussfolgerung / am vielversprechendsten:
+Multiple k-means clustering ensemble algorithm, alternativ einfacher K-Means
+Einfacher K-Means wird aber vor allem zu frueher Datenanalyse genutzt,
+    endgueltiges Modell, dass stabiler und schneller ist waere gut
+    Regression oder Multiclass Classification kommen außer Clustering 
+        in Frage.

@@ -1,0 +1,7 @@
+https://course.spacy.io/en/chapter1
+
+Dazugehoeriges GitHub-Repo:
+https://github.com/ines/spacy-course
+
+
+Der course Ordner zur Uebung.
