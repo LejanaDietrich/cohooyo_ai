@@ -23,3 +23,4 @@ truePositives + trueNegatives bis zu = 63.75%
 Das ist eine Verbesserung um ~6% gegenüber 57.6% (cohooyo Beispiel)
 
 TODO: mittelgroßes spacy-Modell, sowie verschiedene Clustergroeßen ausprobieren
++

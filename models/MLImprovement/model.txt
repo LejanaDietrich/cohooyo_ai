@@ -1,7 +1,20 @@
 NLP:
 standard spacy model
+
+
 ML:
 Ein ideales Mapping wird gesucht.
-Ein Clustering-Algorithmus wird selbst geschrieben oder ein KMeans abgeaendert.
+Ein Clustering-Algorithmus wird zur ersten Einteilung genutzt, dann ein weiterer, der
+den gelikten "Content" beruecksichtigt
+
+If you hold a huge database you should first divide the data into clusters 
+(by using algs like k-means...) , 
+second create a recommendation system for each cluster separately , 
+which can be whatever you want ALS, collaborative filtering , content based etc.. ,
+
+Now the input is a user vector you should assign the vector for the closest cluster,
+the next step is to recommend for the vector according to the cluster recommender. 
+
+
 Evaluation:
 TODO

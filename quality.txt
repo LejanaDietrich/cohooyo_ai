@@ -1,6 +1,11 @@
 which metrics:
 https://www.sciencedirect.com/science/article/abs/pii/S0020025516310052
-accuracy, coverage, serependity (unplanned fortunate discoveries)
+accuracy (precision and recall), coverage, serependity (unplanned fortunate discoveries)
+    Coverage:
+    If the number of lines of code in a system component is 500 and the number
+    of lines executed across all existing test cases is 50, then your test coverage is:
+    (50 / 500) * 100 = 10%
+
 how:
 https://www.quora.com/How-can-I-measure-the-accuracy-of-a-recommender-system
 detailed paper:

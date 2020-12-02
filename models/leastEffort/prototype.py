@@ -4,8 +4,9 @@
 #parameters - name of graphs being created change with these too
 # "de_core_news_", "sm", 4 in example from cohooyo/Alessandro
 modelLang = "de_core_news_"
-modelSize = "sm"
-clusterSize = 4
+modelSize = "md"
+#abhaengig machen von Anzahl der Datensaetze:
+clusterSize = 7
 
 #see mapped_jobs for changing the mapping parameters
 
@@ -158,7 +159,6 @@ for index,xy in enumerate(zip(data[:,0], data[:,1])):
 
 
 # Clustering
-
 kmeans = KMeans(n_clusters=clusterSize)
 # fit kmeans object to data
 kmeans.fit(mapped_jobs)
@@ -176,6 +176,7 @@ plt.savefig(saveString)
 'EVALUATE'
 from functools import reduce
 
+#TODO: Find out how to get exact distance between the mapped points
 def closest_cluster(jobid):
     indices_only=list(map(lambda job: job["_id"], jobs))    
     _=indices_only.index(jobid)
