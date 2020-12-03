@@ -1,0 +1,18 @@
+Install/Update Spacy:
+    Python Version 3.7 ist unterstuetzt, neuere Versionen nicht
+    in beliebigem Ordner, z.B. Installationsort von Python per Konsole:
+        pip install -U spacy
+    Sprachpakete downloaden:
+        npm install kann ausprobiert werden, reicht vielleicht
+        small:
+            python -m spacy download de_core_news_sm
+        medium:
+            python -m spacy download de_core_news_md
+        large:
+            python -m spacy download de_core_news_lg
+    Sicherstellen, dass funktioniert: 
+        python -m spacy validate
+
+
+Sklearn:
+    pip install sklearn

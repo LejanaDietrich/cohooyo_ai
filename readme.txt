@@ -2,11 +2,12 @@ Vorgehen:
 Zuerst theoretisches Modell entwickeln, indem 8 Teilaugaben von Alessandro 
 umgesetzt werden. Ggf bereits in TensorFlow einarbeiten
 Dann wirkliche Implementierung beginnen.
-    NLP und falls nicht vermeidbar Data Mining, dann daraus ML entwickeln
+    NLP optimieren, dann daraus ML entwickeln
     Model Assessments jeder implementierung, um die Qualität zu bestimmen 
         (die fuer unser Szenarion hoeher, als die externer Modelle sein sollte)
-    Wird ein großer Teil des Algorithmus selbst geschrieben Unit Tests fuer
-        im idealfall alle Funktionen
+        Mindestens fuer jede eine confusion Matrix erstellen
+    Wird ein großer Teil des Algorithmus selbst geschrieben,
+     Unit tests fuer Funktionen
 
 Technologien und Frameworks: 
     ML:
@@ -18,7 +19,7 @@ Technologien und Frameworks:
         Spacy
     NLP:
         Spacy
-        Brat oder besser Prodigy, falls Daten selbst annotiert werden muessen
+        Brat oder besser Prodigy, zur Daten-Annotierung
     Daten:
         sklearn
     Visualisierung:

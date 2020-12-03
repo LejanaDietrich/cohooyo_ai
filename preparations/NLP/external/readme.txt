@@ -15,15 +15,19 @@ Install/Update Spacy:
     Sprachpakete downloaden:
         npm install kann ausprobiert werden, reicht vielleicht
         small:
-            python -m spacy download en_core_web_sm
+            (python -m spacy download en_core_web_sm)
             python -m spacy download de_core_news_sm
         medium:
-            python -m spacy download en_core_web_md
+            (python -m spacy download en_core_web_md)
+            python -m spacy download de_core_news_md
+        large:
+            (python -m spacy download en_core_web_lg)
+            python -m spacy download de_core_news_lg
 
 Zur Visualisierung wird die Python Bibliothek matplotlibrary genutzt:
-python -m pip install -U matplotlib
+    python -m pip install -U matplotlib
 Sowie die darauf basierende Bib seaborn:
-pip install seaborn
+    pip install seaborn
 
 Im course Unterordner finden sich der Link zu einem empfehlenswerten spacy-Tutorial,
     sowie Files mit bearbeiteten Uebungen, die zur Referenz dienen koennen
