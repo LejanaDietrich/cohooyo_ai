@@ -1,5 +1,3 @@
-Hallo Nico
-
 Vorgehen: 
 Zuerst theoretisches Modell entwickeln, indem 8 Teilaugaben von Alessandro 
 umgesetzt werden. Ggf bereits in TensorFlow einarbeiten

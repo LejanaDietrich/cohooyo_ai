@@ -2,12 +2,15 @@
 import requests
 import json
 
+#users[x][0] - description
+#users[x][0] - liked profiles
+#users[x][0] - description
 users = [
-    [['Ausbildung', 'Elektrotechnik', 'Volt'], ['5f3b78a4809ba900124873fa', '5f3b770d809ba900124873ee'], ['5f914b8a759f730012afba96'],[]],
-    [['Brot backen'], ['5f914b8a759f730012afba96'], [], [[{'latitude': 49.4874592, 'longitude': 8.466039499999999}]] ],
-    [['Holzverarbeitung'], ['5f3b7a10809ba9001248740c'], ['5f3b78a4809ba900124873fa'], [[]]],
-    [[],[],[], []],
-    [['Informatik'],[],[], []],
+    [[0], ['Ausbildung', 'Elektrotechnik', 'Volt'], ['5f3b78a4809ba900124873fa', '5f3b770d809ba900124873ee'], ['5f914b8a759f730012afba96'],[]],
+    [[1], ['Brot backen'], ['5f914b8a759f730012afba96'], [], [[{'latitude': 49.4874592, 'longitude': 8.466039499999999}]] ],
+    [[2], ['Holzverarbeitung'], ['5f3b7a10809ba9001248740c'], ['5f3b78a4809ba900124873fa'], [[]]],
+    [[3], [],[],[], []],
+    [[4], ['Informatik'],[],[], []],
 ]
 
 #e.g. userid, jobid, rating-score (e.g. 0-5) 

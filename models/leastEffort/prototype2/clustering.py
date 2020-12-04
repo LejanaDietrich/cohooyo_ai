@@ -1,3 +1,6 @@
+#TODO object returns aren't efficient in python, work with global variables or
+#no functions once the algorithm is implemented
+
 #parameters - name of graphs being created change with these too
 # "de_core_news_", "sm", 4 in example from cohooyo/Alessandro
 modelLang = "de_core_news_"
@@ -83,6 +86,7 @@ def clustering():
     mapped_clusters = kmeans.fit_predict(mapped_jobs)
 
 #TODO: Find out how to get exact distance between the mapped points
+#
 def closest_cluster(jobid):
     indices_only=list(map(lambda job: job["_id"], jobs))    
     _=indices_only.index(jobid)
@@ -101,15 +105,34 @@ def get_jobs_by_cluster(clusterid):
     return return_jobs
 
 def get_recommendations():
-    likes_per_users = list(map(lambda user: user[1], users))
+    #the id of the user is saved as user, done for all users
+    likes_per_users = list(map(lambda user: user[2], users))
+    #
     list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), likes_per_user)) , likes_per_users))
+    print(list_of_clusters_per_user)
     recommended_jobs=list(map(lambda list_per_user: list(map(lambda cluster:get_jobs_by_cluster(cluster),list_per_user)), list_of_clusters_per_user))
     recommendations = list(map(lambda user_recommendations:reduce(lambda x,y: x+y,user_recommendations,[]),recommended_jobs))
     print('\n', recommendations) 
     return recommendations
 
+#TODO: make work
 def get_recommendations_for(id):
-    return None
+
+    #this can get the long id '5f3b770d809ba900124873ee' etc
+    #indices_only=list(map(lambda job: job["_id"], jobs))
+
+    current_user = None
+    for user in users:
+        if user[id]:
+            current_user = user
+    user_likes = current_user[2]
+    print(user_likes)
+    list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), user_likes)) , user_likes))
+    #clusters_for_user = list( map(lambda user_like: closest_cluster(user_like), user_likes))
+    #return clusters_for_user
+    return list_of_clusters_per_user
+
+  
 
 def filter_recommendations():
     return None
@@ -131,6 +154,7 @@ def evaluate_alg():
     y_true=[]
     y_pred=[]
     for evaluation in thresholded_evaluations:
+        #evaluation[1] is the userid
         prediction=find_prediction(evaluation[0], evaluation[1])
         evaluation.append(prediction)
         results_for_confusion_matrix.append(evaluation)
@@ -150,19 +174,5 @@ def evaluate_alg():
 clustering()
 visualize()
 recommendations = get_recommendations()
-
+print (get_recommendations_for(1))
 evaluate_alg()
-
-
-
-
-    
-
-
-
-#
-
-
-
-
-
