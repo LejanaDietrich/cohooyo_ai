@@ -173,7 +173,7 @@ plt.savefig(saveString)
 
 
 
-'EVALUATE'
+#RECOMMEND
 from functools import reduce
 
 #TODO: Find out how to get exact distance between the mapped points
@@ -201,6 +201,7 @@ recommendations = list(map(lambda user_recommendations:reduce(lambda x,y: x+y,us
 print('\n', recommendations) 
 
 
+#EVALUATE
 #Set threshold for boolean decision
 thresholded_evaluations=list(map(lambda evaluation: [evaluation[0],evaluation[1], 1 if evaluation[2]>2 else 0] , evaluations ))
 

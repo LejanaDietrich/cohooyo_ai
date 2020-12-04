@@ -1,0 +1,4 @@
+https://github.com/raviraju/recommender_system/tree/master/binary_recommender/recommender
+https://github.com/raviraju/recommender_system/blob/master/binary_recommender/recommender/rec_item_based_cf.py
+
+https://github.com/caserec/CaseRecommender/tree/master/caserec
