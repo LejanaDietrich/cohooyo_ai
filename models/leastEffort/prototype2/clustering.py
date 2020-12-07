@@ -32,6 +32,9 @@ import seaborn as sns
 #import needed userData and matchingData
 import data
 
+#import for monitoring code
+import time
+
 #get data
 users = data.users
 evaluations = data.evaluations
@@ -104,37 +107,32 @@ def get_jobs_by_cluster(clusterid):
     
     return return_jobs
 
+
 def get_recommendations():
     #the id of the user is saved as user, done for all users
     likes_per_users = list(map(lambda user: user[2], users))
     #
     list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), likes_per_user)) , likes_per_users))
-    print(list_of_clusters_per_user)
+    recommended_jobs=list(map(lambda list_per_user: list(map(lambda cluster:get_jobs_by_cluster(cluster),list_per_user)), list_of_clusters_per_user))
+    recommendations = list(map(lambda user_recommendations:reduce(lambda x,y: x+y,user_recommendations,[]),recommended_jobs))
+    #print('\n', list_of_clusters_per_user) 
+    return recommendations
+
+#for now for works for exactly one user
+def get_recommendations_for(id):
+    #this can get the long job_id '5f3b770d809ba900124873ee' etc
+    #indices_only=list(map(lambda job: job["_id"], jobs))
+
+    relevant_users = [users[id]]
+    likes_per_users = list(map(lambda user: user[2], relevant_users))
+    
+    list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), likes_per_user)) , likes_per_users))
     recommended_jobs=list(map(lambda list_per_user: list(map(lambda cluster:get_jobs_by_cluster(cluster),list_per_user)), list_of_clusters_per_user))
     recommendations = list(map(lambda user_recommendations:reduce(lambda x,y: x+y,user_recommendations,[]),recommended_jobs))
     #print('\n', recommendations) 
     return recommendations
 
-#TODO: make work
-def get_recommendations_for(id):
-
-    #this can get the long id '5f3b770d809ba900124873ee' etc
-    #indices_only=list(map(lambda job: job["_id"], jobs))
-
-    current_user = None
-    for user in users:
-        if user[id]:
-            current_user = user
-    current_user = users[0]
-    user_likes = current_user[2]
-    print(user_likes)
-    #list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), user_likes)) , user_likes))
-    clusters_for_user = list( map(lambda user_like: closest_cluster(user_like), user_likes))
-    return clusters_for_user
-    #return list_of_clusters_per_user
-
-
-
+#filter by hard-set criteria like max_distance
 def filter_recommendations():
     return None
 
@@ -172,8 +170,20 @@ def evaluate_alg():
     plt.savefig(saveString)
 
 
+
+start_time =  time.perf_counter()
 clustering()
+print("clustering - time: ", time.perf_counter() - start_time)
+
 #visualize()
+
+start_time =  time.perf_counter()
 recommendations = get_recommendations()
+print("all recommendations - time: ", time.perf_counter() - start_time)
+print(recommendations[1])
+
+start_time =  time.perf_counter()
 print (get_recommendations_for(1))
+print("1 recommendation - time: ", time.perf_counter() - start_time)
+
 #evaluate_alg()

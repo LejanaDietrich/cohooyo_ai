@@ -31,7 +31,7 @@ Technologien und Frameworks:
 Falls weiteres noetig - Machine-Learning Toolbox:
 https://amitness.com/toolbox/
 
-aktueller Prototyp:
+!aktueller Prototyp:
 models\leastEffort\prototype.py
 
 TODO:
