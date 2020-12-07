@@ -112,7 +112,7 @@ def get_recommendations():
     print(list_of_clusters_per_user)
     recommended_jobs=list(map(lambda list_per_user: list(map(lambda cluster:get_jobs_by_cluster(cluster),list_per_user)), list_of_clusters_per_user))
     recommendations = list(map(lambda user_recommendations:reduce(lambda x,y: x+y,user_recommendations,[]),recommended_jobs))
-    print('\n', recommendations) 
+    #print('\n', recommendations) 
     return recommendations
 
 #TODO: make work
@@ -125,14 +125,15 @@ def get_recommendations_for(id):
     for user in users:
         if user[id]:
             current_user = user
+    current_user = users[0]
     user_likes = current_user[2]
     print(user_likes)
-    list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), user_likes)) , user_likes))
-    #clusters_for_user = list( map(lambda user_like: closest_cluster(user_like), user_likes))
-    #return clusters_for_user
-    return list_of_clusters_per_user
+    #list_of_clusters_per_user=list(map(lambda likes_per_user: list( map(lambda user_like: closest_cluster(user_like), user_likes)) , user_likes))
+    clusters_for_user = list( map(lambda user_like: closest_cluster(user_like), user_likes))
+    return clusters_for_user
+    #return list_of_clusters_per_user
 
-  
+
 
 def filter_recommendations():
     return None
@@ -171,8 +172,8 @@ def evaluate_alg():
     plt.savefig(saveString)
 
 
-#clustering()
+clustering()
 #visualize()
-#recommendations = get_recommendations()
+recommendations = get_recommendations()
 print (get_recommendations_for(1))
 #evaluate_alg()
