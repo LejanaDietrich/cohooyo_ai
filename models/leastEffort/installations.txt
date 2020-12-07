@@ -16,3 +16,7 @@ Install/Update Spacy:
 
 Sklearn:
     pip install sklearn
+
+Visualization:
+    pip install matplotlib
+    pip install seaborn

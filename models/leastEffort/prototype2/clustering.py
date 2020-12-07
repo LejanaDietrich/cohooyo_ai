@@ -171,8 +171,8 @@ def evaluate_alg():
     plt.savefig(saveString)
 
 
-clustering()
-visualize()
-recommendations = get_recommendations()
+#clustering()
+#visualize()
+#recommendations = get_recommendations()
 print (get_recommendations_for(1))
-evaluate_alg()
+#evaluate_alg()
