@@ -2,6 +2,8 @@
 import requests
 import json
 
+latest_clusering = None
+
 #users[x][0] - description
 #users[x][0] - liked profiles
 #users[x][0] - description
@@ -100,3 +102,4 @@ evaluations = [
 #access API
 r = requests.get('https://api.cohooyo.com/jobs')
 jobs = json.loads(r.text)
+

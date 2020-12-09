@@ -4,7 +4,7 @@
 #parameters - name of graphs being created change with these too
 # "de_core_news_", "sm", 4 in example from cohooyo/Alessandro
 modelLang = "de_core_news_"
-modelSize = "lg"
+modelSize = "md"
 #abhaengig machen von Anzahl der Datensaetze:
 clusterSize = 6
 
@@ -32,15 +32,18 @@ import seaborn as sns
 #import needed userData and matchingData
 import data
 
-#import for monitoring code
+#import for monitoring code and multithreading
+import threading
 import time
+
+#imports for multithreading
 
 #get data
 users = data.users
 evaluations = data.evaluations
 jobs = data.jobs
 
-#save map
+#globals raus
 global mapped_jobs
 global mapped_clusters
 
@@ -76,7 +79,8 @@ def mapping():
      #TODO: Find best simple mapping for internal model
     #Feature Selection + mapping with spacy vectors
     global mapped_jobs
-    mapped_jobs = list(map(lambda job: np.concatenate((nlp(job['jobTitle']).vector,[job['latitude'],job['longitude']])), jobs))
+    #nlp(job['hashtags'][1]).vector, nlp(job['must_have'][1]).vector,
+    mapped_jobs = list(map(lambda job: np.concatenate((nlp(job['jobTitle']).vector, nlp(job['hashtags']).vector, [job['latitude'],job['longitude']])), jobs))
     return mapped_jobs
 
 def clustering():
@@ -172,10 +176,22 @@ def evaluate_alg():
 
 
 start_time =  time.perf_counter()
+#TODO: make multithreaded
+# takes 1sec+
 clustering()
-print("clustering - time: ", time.perf_counter() - start_time)
+print("clustering - time1: ", time.perf_counter() - start_time)
+# takes practically no time
+data.clustering = mapped_clusters
+print("clustering - time2: ", time.perf_counter() - start_time)
 
-#visualize()
+
+start_thread_time =  time.perf_counter()
+th = threading.Thread(target=clustering)
+th.start()
+
+
+visualize()
+
 
 start_time =  time.perf_counter()
 recommendations = get_recommendations()
@@ -183,7 +199,11 @@ print("all recommendations - time: ", time.perf_counter() - start_time)
 print(recommendations[1])
 
 start_time =  time.perf_counter()
+# so far slower than all recommendations
 print (get_recommendations_for(1))
 print("1 recommendation - time: ", time.perf_counter() - start_time)
 
-#evaluate_alg()
+evaluate_alg()
+
+th.join()
+print("clustering - time1: ", time.perf_counter() - start_thread_time)
